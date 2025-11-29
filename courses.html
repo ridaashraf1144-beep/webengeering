@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Course Records</title>
+     </style>
+</head>
+<body>
+
+    <div class="header-bar"></div>
+    <div class="navbar-container">
+        <div class="navbar">
+            <a href="webassignment.html">Personal Information</a> 
+            <a href="courses.html" class="active">Table</a>
+            <a href="form.html">Form</a>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <h1 text-align="center">Academic Course Records</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Program</th>
+                    <th>Credits</th>
+                    <th>Instructor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Web Development Basics</td>
+                    <td>BS Computer Science</td>
+                    <td>3</td>
+                    <td>Dr. Sajjid Hussain</td>
+                </tr>
+                <tr>
+                    <td>Database Management</td>
+                    <td>BS Information Tech</td>
+                    <td>4</td>
+                    <td>Mr. Waqar</td>
+                </tr>
+                <tr>
+                    <td>Object-Oriented Programming</td>
+                    <td>BS Software Eng.</td>
+                    <td>3</td>
+                    <td>Dr. Dostdar Hussain</td>
+                </tr>
+                <tr>
+                    <td>Calculus I</td>
+                    <td>BS Computer Science</td>
+                    <td>3</td>
+                    <td>Mr. Nadeem</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-link">
+        
+            <a href="webassignment.html">Go back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
+    <style>
+        
+        :root {
+            --primary-dark: #333333;
+            --accent-green: #6B8E23; 
+            --light-green: #9acd32;
+            --background-light: #F8F8F4;
+            --header-dark: #585858;
+            --border-soft: #D0D0C0;
+            --table-bg: #ffffff;
+            --hover-color: #f4fcf4; 
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            line-height: 1.6;
+            color: var(--primary-dark);
+        }
+
+       
+        .header-bar {
+            background-color: var(--header-dark);
+            height: 50px; 
+            width: 100%;
+        }
+        .navbar-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--table-bg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .navbar {
+            overflow: hidden;
+            text-align: right;
+            padding: 0 20px;
+        }
+        .navbar a {
+            color: var(--primary-dark);
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        .navbar a.active {
+            color: var(--accent-green);
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent-green);
+            margin-bottom: -3px; 
+        }
+        .navbar a:not(.active):hover {
+            color: var(--light-green); 
+        }
+
+        
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 2rem;
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-green);
+            
+        }
+
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: collapse; 
+            border-radius: 10px;
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--table-bg);
+        }
+        
+      
+        thead th {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: none;
+        }
+
+        td {
+            border: 1px solid var(--border-soft);
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            border-left: none;
+            border-right: none;
+        }
+        
+       
+        tbody tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        tbody tr:hover {
+            background-color: var(--hover-color);
+            transition: background-color 0.3s;
+        }
+        
+        /* Link Styling */
+        .footer-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer-link a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .footer-link a:hover {
+            background-color: var(--accent-green);
+            color: white;
+        }
+   

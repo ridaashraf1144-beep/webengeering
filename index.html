@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Portfolio - RIDA ASHRAF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-dark: #450335;
+            --accent-green: #6B8E23;
+            --background-light: #F8F8F4;
+            --sidebar-color: #27856c;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-soft: #D0D0C0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            line-height: 1.8; /* Slightly increased for better reading */
+            font-size: 17px; /* Base font size increase */
+        }
+
+        .main-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background-color: var(--sidebar-color);
+            color: white;
+            padding: 2.5rem 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        .sidebar-header {
+            padding: 0 1.75rem 1.75rem 1.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+        .sidebar-header h1 {
+            font-size: 1.9rem; /* Slightly increased */
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .sidebar-header p {
+            font-size: 1.1rem; /* Increased */
+            opacity: 0.9;
+        }
+        .sidebar-nav a {
+            display: block;
+            padding: 1.0rem 1.75rem; /* Increased padding for visual weight */
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.25rem; /* Increased */
+            transition: background-color 0.2s, color 0.2s;
+            border-left: 5px solid transparent;
+        }
+        .sidebar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .sidebar-nav a.active {
+            background-color: #444;
+            color: white;
+            font-weight: 700;
+            border-left: 5px solid var(--accent-green);
+        }
+
+        .content-area {
+            flex-grow: 1;
+            padding: 50px 70px;
+            background-color: white;
+        }
+        .name {
+            font-family: 'Inter', serif;
+            font-size: 5.5rem; /* Slightly increased */
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .title {
+            font-size: 1.8rem; /* Increased */
+            color: var(--accent-green);
+            margin-bottom: 3rem;
+            padding-bottom: 12px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-soft);
+        }
+        .section-header {
+            color: var(--primary-dark);
+            font-size: 2.3rem; /* Increased */
+            font-weight: 700;
+            padding-bottom: 6px;
+            margin-top: 3.5rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 3px solid var(--accent-green);
+        }
+        .record {
+            margin-bottom: 40px;
+            padding-left: 18px;
+            border-left: 4px solid var(--accent-green);
+        }
+        .date {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.2em; /* Increased */
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .institution, .role {
+            font-size: 1.55rem; /* Increased */
+            font-weight: 700;
+            margin-top: 0;
+            color: var(--text-main);
+        }
+        .description {
+            font-size: 1.25rem; /* Increased */
+            color: var(--text-secondary);
+            line-height: 1.8; /* Increased line-height for readability */
+            margin-top: 10px;
+        }
+        /* Styling for the bullet points within the new description */
+        .description ul {
+            list-style: disc;
+            margin-left: 28px; /* Adjusted margin */
+            padding-left: 0;
+        }
+        .description li {
+            margin-bottom: 10px; /* Increased margin for better separation */
+        }
+        .info-block {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .text-content {
+            flex-grow: 1;
+            font-size: 1.2rem; /* Increased */
+        }
+        .profile-pic {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjusting the intro text size */
+        .text-content .mb-8 p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 1.5rem 0;
+            }
+            .sidebar-nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .sidebar-nav a {
+                padding: 0.7rem 1.2rem;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                font-size: 1.15rem; /* Adjusted for mobile */
+            }
+            .sidebar-nav a.active {
+                border-left: none;
+                border-bottom: 3px solid var(--accent-green);
+            }
+            .content-area {
+                padding: 25px 35px;
+            }
+            .name {
+                font-size: 4.5rem;
+            }
+            .info-block {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .profile-pic {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-layout">
+        
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="text-white">Rida Ashraf</h1>
+                <p>KIU Student & Full Stack Developer</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                
+                <a href="courses.html">Table</a>
+                <a href="form.html">Form</a>
+            </nav>
+            
+            <div class="p-6 text-sm mt-8 opacity-75"> <h2 class="font-bold text-base mb-2">Contact Details</h2>
+                <p>Email: RIDA.ASHRAF@gmail.com</p>
+                <p>Phone: +92 355 5908167</p>
+                <p>Location: Gilgit, Pakistan</p>
+            </div>
+        </div>
+
+        <div class="content-area">
+
+            <div class="name">Rida Ashraf</div>
+            <div class="title">Full Stack Developer</div>
+                 <img width="200" src="WhatsApp Image 2025-11-25 at 6.19.25 AM.jpeg" alt="Professional Profile Picture of RIDA ASHRAF" class="profile-pic">
+
+            <div class="info-block">
+                <div class="text-content">
+                    
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Hello 👋</h2>
+                        <p class="text-gray-600 mb-4">
+                            I am Rida Ashraf, a student at Karakoram International University (KIU), pursuing a B.S. in Computer Science in the 5th semester. I am an experienced web developer focused on architecting high-performance, responsive web applications.
+                        </p>
+                        <p class="text-gray-600">
+                            My technology stack proficiency includes **React.js, Next.js, CSS, and PostgreSQL**. I am dedicated to creating intuitive and efficient user interfaces and effectively managing data across various modern platforms.
+                        </p>
+                    </div>
+
+                    <div class="section-header">ACADEMIC BACKGROUND</div>
+                    
+                    <div class="record">
+                        <div class="date">2023-2027</div>
+                        <div class="institution">Karakoram International University</div>
+                        <div class="description">
+                            Pursuing a **B.S. in Computer Science**. Coursework includes core areas like data structures, software development methodologies, and robust database management systems.
+                        </div>
+                    </div>
+
+                    <div class="record">
+                        <div class="date">2022-2021</div>
+                        <div class="institution">VECTORAIL SCHOOL AND COLLEGE</div>
+                        <div class="description">
+                            Completed the Higher Secondary School Certificate (ICS). Developed a strong analytical foundation with emphasis on **Physics, computer, and Mathematics**.
+                        </div>
+                    </div>
+
+                    <div class="record">
+                        <div class="date">2019-2020</div>
+                        <div class="institution">EAGLE PUBLIC SCHOOL</div>
+                        <div class="description">
+                            Achieved the Secondary School Certificate (Science track). Excelling in key scientific subjects which established the basis for further technical studies.
+                        </div>
+                    </div>
+
+                    <div class="section-header">CAREER HISTORY</div>
+                    
+                    <div class="record">
+                        <div class="date">2019-2022</div>
+                        <div class="role">Frontend Developer @ SuperRealtor</div>
+                        <div class="description">
+                            <ul>
+                                <li>Developed and maintained client-side features for a large-scale real estate platform using **React.js and Next.js**.</li>
+                                <li>Collaborated with UX/UI designers to translate high-fidelity mockups into reusable, high-performance UI components, ensuring cross-browser compatibility.</li>
+                                <li>Optimized application performance, leading to a 20% reduction in page load times across major user flows.</li>
+                                <li>Implemented responsive design principles using **Tailwind CSS** to ensure a seamless experience on desktop and mobile devices.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
